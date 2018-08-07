@@ -252,6 +252,7 @@ void draw_detections(image im, detection *dets, int num, float thresh, char **na
                     strcat(labelstr, ", ");
                     strcat(labelstr, names[j]);
                 }
+                sprintf(labelstr,"%s:%.2f%%",labelstr,dets[i].prob[j]*100);
                 printf("%s: %.0f%%\n", names[j], dets[i].prob[j]*100);
             }
         }
