@@ -621,6 +621,7 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
         else{
             char* result = concat("output/",output);
             save_image(im, result);
+            n++;
 #ifdef OPENCV
             cvNamedWindow("predictions", CV_WINDOW_NORMAL); 
             if(fullscreen){
@@ -656,7 +657,7 @@ void validate_sample(char *datacfg, char *cfgfile, char *weightfile, char *folde
 
     if(dr == NULL){
         printf("Could not open current directory.");
-        return 0;
+        return;
     }
     size_t folder_len = strlen(folder);
     while((de = readdir(dr)) != NULL){
